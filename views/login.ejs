@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head', { title: 'Login' }) %>
+<body>
+    <header>
+        <h1 class="main-heading">Automated Business Analysis Tool</h1>
+    </header>
+    
+    <div class="form-container">
+        <h2>Login</h2>
+        <form action="/login" method="post">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="username" placeholder="Enter your name" required autocomplete="off" />
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" placeholder="Password" required />
+            </div>
+            <button type="submit" class="submit-btn">Login</button>
+        </form>
+        <p>Don't have an account? <a href="/signup">Signup</a></p>
+    </div>
+</body>
+</html>

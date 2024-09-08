@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('partials/head', { title: 'Resource Set', vennDiagram: true }) %>
+<body>
+    <%- include('partials/header') %>
+    <div class="combined-container">
+        <!-- Venn Diagram Container -->
+        <div class="venn-container">
+            <div class="venn-diagram">
+              <div class="circle circle1"></div>
+              <div class="circle circle2"></div>
+              <div class="circle circle3"></div>
+              <input type="text" id="market" class="label label1" name="market" placeholder="<%= businessData.market || 'Market' %>" readonly>
+              <input type="text" id="organization" class="label label2" name="organization" placeholder="<%= businessData.organization || 'Organization' %>" readonly>
+              <input type="text" id="businessEnvironment" class="label label3" name="businessEnvironment" placeholder="<%= businessData.businessEnvironment || 'Business Environment' %>" readonly>
+              <input type="text" id="productsServices" class="label label4" name="productsServices" placeholder="<%= businessData.productsServices || 'Products/Services' %>" readonly>
+              <input type="text" id="coreBusiness" class="label label5" name="coreBusiness" placeholder="<%= businessData.coreBusiness || 'Core Business' %>" readonly>
+              <input type="text" id="competition" class="label label6" name="competition" placeholder="<%= businessData.competition || 'Competition' %>" readonly>
+              <input type="text" id="resources" class="label label7" name="resources" placeholder="<%= businessData.resources || 'Resources' %>" readonly>
+              <input type="text" id="businessClimate" class="label label8" name="businessClimate" placeholder="<%= businessData.businessClimate || 'Business Climate' %>" readonly>
+            </div>
+          </div>
+
+        <!-- Resource Set Form Container -->
+        <div class="form-container">
+            <header>Generic Business Model</header>
+            <form action="/submit-resource-set" method="post">
+                <div class="form-group">
+                    <span class="title">Resource Set</span>
+                    <div class="fields">
+                        <div class="form-group">
+                            <label for="finance">Finance</label>
+                            <input type="text" id="finance" name="finance" placeholder="Where does the organisation get money from" value="<%= businessData.finance %>" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="people">People</label>
+                            <input type="text" id="people" name="people" placeholder="What are the job roles in the organisation" value="<%= businessData.people %>" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="technology">Technology</label>
+                            <input type="text" id="technology" name="technology" placeholder="What equipment is used in the organisation" value="<%= businessData.technology %>" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="skills">Skills</label>
+                            <input type="text" id="skills" name="skills" placeholder="What skills does each job role have" value="<%= businessData.skills %>" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="rawMaterial">Raw Materials</label>
+                            <input type="text" id="rawMaterial" name="rawMaterial" placeholder="What does the organisation buy in to use that is not listed in technology" value="<%= businessData.rawMaterial %>" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="assets">Assets</label>
+                            <input type="text" id="assets" name="assets" placeholder="What are the large things the organisation has to sell when it closes" value="<%= businessData.assets %>" required>
+                        </div>
+                    </div>
+
+                    <% if (error) { %>
+                        <p id="error-message" style="color: red;">
+                            <%= error %>
+                        </p>
+                    <% } %>
+
+                    <div class="buttons">
+                        <button type="button" class="backBtn" onclick="location.href='/product-set'">
+                            <i class="uil uil-navigator"></i>
+                            <span class="btnText">Back</span>
+                        </button>
+                        <button type="submit" class="nextBtn">
+                            <span class="btnText">Next</span>
+                            <i class="uil uil-navigator"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="/script.js"></script>
+</body>
+</html>

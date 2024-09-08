@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Write-Up</title>
+    <link rel="stylesheet" href="/stylesheets/main.css">
+</head>
+<body>
+    <%- include('partials/header') %>
+    <div class="container">
+        <h1>Final Business Analysis Summary</h1>
+        <!-- This will display the final write-up content passed from the server -->
+        <p><%= writeUp %></p>
+
+        <!-- Download Button -->
+        <a id="downloadBtn" href="/download-write-up" class="btn btn-primary">Download PDF</a>
+    </div>
+
+    <script>
+        document.getElementById('downloadBtn').addEventListener('click', function() {
+            // Assuming your form has an id of 'yourFormId'
+            const form = document.getElementById('yourFormId');
+            if (form) {
+                form.reset(); // This clears the form fields
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('partials/head', { title: 'Competitors Set', vennDiagram: true }) %>
+<body>
+    <%- include('partials/header') %>
+    <div class="combined-container">
+        <!-- Venn Diagram Container -->
+        <div class="venn-container">
+            <div class="venn-diagram">
+              <div class="circle circle1"></div>
+              <div class="circle circle2"></div>
+              <div class="circle circle3"></div>
+              <input type="text" id="market" class="label label1" name="market" placeholder="<%= businessData.market || 'Market' %>" readonly>
+              <input type="text" id="organization" class="label label2" name="organization" placeholder="<%= businessData.organization || 'Organization' %>" readonly>
+              <input type="text" id="businessEnvironment" class="label label3" name="businessEnvironment" placeholder="<%= businessData.businessEnvironment || 'Business Environment' %>" readonly>
+              <input type="text" id="productsServices" class="label label4" name="productsServices" placeholder="<%= businessData.productsServices || 'Products/Services' %>" readonly>
+              <input type="text" id="coreBusiness" class="label label5" name="coreBusiness" placeholder="<%= businessData.coreBusiness || 'Core Business' %>" readonly>
+              <input type="text" id="competition" class="label label6" name="competition" placeholder="<%= businessData.competition || 'Competition' %>" readonly>
+              <input type="text" id="resources" class="label label7" name="resources" placeholder="<%= businessData.resources || 'Resources' %>" readonly>
+              <input type="text" id="businessClimate" class="label label8" name="businessClimate" placeholder="<%= businessData.businessClimate || 'Business Climate' %>" readonly>
+            </div>
+          </div>
+
+        <!-- Competitors Set Form Container -->
+        <div class="form-container">
+            <header>Generic Business Model</header>
+            <form action="/submit-competitors-set" method="post">
+                <div class="form-group">
+                    <span class="title">Competitors and Market Set</span>
+                    <div class="fields">
+                        <div class="form-group">
+                            <label for="competitors">Competitors</label>
+                            <input type="text" id="competitors" name="competitors" placeholder="Name main competitors of organisation" value="<%= businessData.competitors %>" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="substitutes">Direct substitutes</label>
+                            <input type="text" id="substitutes" name="substitutes" placeholder="Name the direct substitutes of the organisation’s products and services" value="<%= businessData.directSubstitutes %>" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="indirectSubstitutes">Indirect substitutes</label>
+                            <input type="text" id="indirectSubstitutes" name="indirectSubstitutes" placeholder="Name the indirect substitute of the organisation’s products and services" value="<%= businessData.indirectSubstitutes %>" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="customers">Customers</label>
+                            <input type="text" id="customers" name="customers" placeholder="Who buys the products and services of the organisation" value="<%= businessData.customers %>" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="consumers">Consumers</label>
+                            <input type="text" id="consumers" name="consumers" placeholder="Who uses the products and services of the organisation" value="<%= businessData.consumers %>" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="channels">Channels</label>
+                            <input type="text" id="channels" name="channels" placeholder="Channels used by the organisation" value="<%= businessData.channels %>" required>
+                        </div>
+                    </div>
+
+                    <% if (error) { %>
+                        <p id="error-message" style="color: red;">
+                            <%= error %>
+                        </p>
+                    <% } %>
+
+                    <div class="buttons">
+                        <button type="button" class="backBtn" onclick="location.href='/resource-set'">
+                            <i class="uil uil-navigator"></i>
+                            <span class="btnText">Back</span>
+                        </button>
+                        <button type="submit" class="nextBtn">
+                            <span class="btnText">Next</span>
+                            <i class="uil uil-navigator"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="/script.js"></script>
+</body>
+</html>

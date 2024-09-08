@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('partials/head', { title: 'Product Set', vennDiagram: true }) %>
+<body>
+    <%- include('partials/header') %>
+    <div class="combined-container">
+        <!-- Venn Diagram Container -->
+        <div class="venn-container">
+            <div class="venn-diagram">
+              <div class="circle circle1"></div>
+              <div class="circle circle2"></div>
+              <div class="circle circle3"></div>
+              <input type="text" id="market" class="label label1" name="market" placeholder="<%= businessData.market || 'Market' %>" readonly>
+              <input type="text" id="organization" class="label label2" name="organization" placeholder="<%= businessData.organization || 'Organization' %>" readonly>
+              <input type="text" id="businessEnvironment" class="label label3" name="businessEnvironment" placeholder="<%= businessData.businessEnvironment || 'Business Environment' %>" readonly>
+              <input type="text" id="productsServices" class="label label4" name="productsServices" placeholder="<%= businessData.productsServices || 'Products/Services' %>" readonly>
+              <input type="text" id="coreBusiness" class="label label5" name="coreBusiness" placeholder="<%= businessData.coreBusiness || 'Core Business' %>" readonly>
+              <input type="text" id="competition" class="label label6" name="competition" placeholder="<%= businessData.competition || 'Competition' %>" readonly>
+              <input type="text" id="resources" class="label label7" name="resources" placeholder="<%= businessData.resources || 'Resources' %>" readonly>
+              <input type="text" id="businessClimate" class="label label8" name="businessClimate" placeholder="<%= businessData.businessClimate || 'Business Climate' %>" readonly>
+            </div>
+        </div>
+
+        <!-- Product Set Form Container -->
+        <div class="form-container">
+            <header>Generic Business Model</header>
+            <form action="/submit-product-set" method="post">
+                <div class="form-group">
+                    <span class="title">Product Set and Core Business Set</span>
+                    <div class="fields">
+                        <div class="form-group">
+                            <label for="portfolio">Product portfolio</label>
+                            <input type="text" id="portfolio" name="portfolio" placeholder="List of products sold" value="<%= businessData.portfolio %>" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="services">Services</label>
+                            <input type="text" id="services" name="services" placeholder="List of services sold" value="<%= businessData.services %>" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="purpose">Purpose</label>
+                            <input type="text" id="purpose" name="purpose" placeholder="State purpose of organisation" value="<%= businessData.purpose %>" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="strategy">Strategy</label>
+                            <input type="text" id="strategy" name="strategy" placeholder="State how organisation meets its purpose" value="<%= businessData.strategy %>" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="coreCompetencies">Core Competencies</label>
+                            <input type="text" id="coreCompetencies" name="coreCompetencies" placeholder="What does the organisation do better than competitors" value="<%= businessData.coreCompetencies %>" required>
+                        </div>
+                    </div>
+
+                    <% if (error) { %>
+                        <p id="error-message" style="color: red;">
+                            <%= error %>
+                        </p>
+                    <% } %>
+
+                    <div class="buttons">
+                        <button type="button" class="backBtn" onclick="location.href='/organisation-set'">
+                            <i class="uil uil-navigator"></i>
+                            <span class="btnText">Back</span>
+                        </button>
+                        <button type="submit" class="nextBtn">
+                            <span class="btnText">Next</span>
+                            <i class="uil uil-navigator"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="/script.js"></script>
+</body>
+</html>

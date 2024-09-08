@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('partials/head', { title: 'Business Climate Set', vennDiagram: true }) %>
+<body>
+    <%- include('partials/header') %>
+    <div class="combined-container">
+        <!-- Venn Diagram Container -->
+        <div class="venn-container">
+            <div class="venn-diagram">
+              <div class="circle circle1"></div>
+              <div class="circle circle2"></div>
+              <div class="circle circle3"></div>
+              <input type="text" id="market" class="label label1" name="market" placeholder="<%= businessData.market || 'Market' %>" readonly>
+              <input type="text" id="organization" class="label label2" name="organization" placeholder="<%= businessData.organization || 'Organization' %>" readonly>
+              <input type="text" id="businessEnvironment" class="label label3" name="businessEnvironment" placeholder="<%= businessData.businessEnvironment || 'Business Environment' %>" readonly>
+              <input type="text" id="productsServices" class="label label4" name="productsServices" placeholder="<%= businessData.productsServices || 'Products/Services' %>" readonly>
+              <input type="text" id="coreBusiness" class="label label5" name="coreBusiness" placeholder="<%= businessData.coreBusiness || 'Core Business' %>" readonly>
+              <input type="text" id="competition" class="label label6" name="competition" placeholder="<%= businessData.competition || 'Competition' %>" readonly>
+              <input type="text" id="resources" class="label label7" name="resources" placeholder="<%= businessData.resources || 'Resources' %>" readonly>
+              <input type="text" id="businessClimate" class="label label8" name="businessClimate" placeholder="<%= businessData.businessClimate || 'Business Climate' %>" readonly>
+            </div>
+          </div>
+
+        <!-- Climate Set Form Container -->
+        <div class="form-container">
+            <header>Generic Business Model</header>
+            <form action="/submit-climate-set" method="post">
+                <div class="form-group">
+                    <span class="title">Business Climate Set</span>
+                    <div class="fields">
+                        <div class="form-group">
+                            <label for="legislation">Legislation</label>
+                            <input type="text" id="legislation" name="legislation" placeholder="Main areas of legislation that directly apply to the specific organisation" value="<%= businessData.legislation %>" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="economy">Economy</label>
+                            <input type="text" id="economy" name="economy" placeholder="Factors in the local/global economy might affect trade for the organisation" value="<%= businessData.economy %>" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="culture">Culture</label>
+                            <input type="text" id="culture" name="culture" placeholder="Local/global social trends might influence the organisation to change its products, services or ways of working" value="<%= businessData.culture %>" required>
+                        </div>
+                    </div>
+
+                    <% if (error) { %>
+                        <p id="error-message" style="color: red;">
+                            <%= error %>
+                        </p>
+                    <% } %>
+
+                    <div class="buttons">
+                        <button type="button" class="backBtn" onclick="location.href='/environment-set'">
+                            <i class="uil uil-navigator"></i>
+                            <span class="btnText">Back</span>
+                        </button>
+                        <button type="submit" class="submit">
+                            <span class="btnText">Submit</span>
+                            <i class="uil uil-navigator"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="/script.js"></script>
+</body>
+</html>

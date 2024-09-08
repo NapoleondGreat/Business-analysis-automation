@@ -1,0 +1,222 @@
+/* Reset and common styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: white;
+    padding: 20px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-container {
+    width: 700px;
+    margin: 0 auto;
+    padding: 40px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: #f9f9f9;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    min-height: 500px;
+}
+
+/* Add a hover effect to elevate the container */
+.form-container:hover {
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Style the form heading */
+.form-container header {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+/* Improve the form group spacing */
+.form-container .form-group {
+    margin-bottom: 20px;
+}
+
+/* Style the labels */
+.form-container .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Make the form inputs more modern */
+.form-container .form-group input {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #fff;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Change border and box shadow on focus */
+.form-container .form-group input:focus {
+    border-color: #4070f4;
+    box-shadow: 0 0 5px rgba(64, 112, 244, 0.5);
+}
+
+/* Style the submit button with higher specificity */
+.form-container form .submit-btn {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    background-color: #1e90ff !important;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Add a hover effect to the submit button */
+.form-container form .submit-btn:hover {
+    background-color: #1c86ee !important;
+    transform: translateY(-2px);
+}
+
+/* Container for the form */
+.container {
+    text-align: center;
+    position: relative;
+    max-width: 800px;
+    width: 100%;
+    border-radius: 6px;
+    padding: 50px;
+    margin: 0 15px;
+    background-color: #fff;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    min-height: 900px;
+}
+
+.combined-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 5px;
+}
+
+.container header {
+    font-size: 26px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+.container header::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 3px;
+    width: 27px;
+    border-radius: 8px;
+    background-color: #4070f4;
+}
+
+.container form {
+    margin-top: 16px;
+    min-height: 500px;
+}
+
+form .fields .input-field {
+    margin: 10px 0;
+    width: 100%;
+}
+
+form .buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+form .buttons button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 6px rgba(0, 123, 255, 0.3);
+}
+
+form .buttons button .uil {
+    margin-right: 8px;
+}
+
+form .buttons button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+form .buttons button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 123, 255, 0.3);
+}
+
+/* Different color for the back button */
+form .buttons button.backBtn {
+    background-color: #6c757d;
+}
+
+form .buttons button.backBtn:hover {
+    background-color: #5a6268;
+}
+
+@media (max-width: 750px) {
+    .container form {
+        overflow-y: scroll;
+    }
+    .container form::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+@media (max-width: 550px) {
+    form .fields .input-field {
+        width: 100%;
+    }
+}
+
+/* Styles for the main heading */
+.main-heading {
+    font-size: 24px;
+    font-weight: bold;
+    color: #722f37;
+    text-align: center;
+    margin-top: 20px;
+    position: relative;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}

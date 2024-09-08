@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venn Diagram with Editable Labels</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <%- include('partials/header') %>
+    <div class="main-container">
+        <!-- Convert the Venn diagram into a form -->
+        <form action="/submit-venn-data" method="POST">
+            <div class="venn-container">
+                <div class="venn-diagram">
+                    <div class="circle circle1"></div>
+                    <div class="circle circle2"></div>
+                    <div class="circle circle3"></div>
+                    <input type="text" class="label label1" name="market" placeholder="Market">
+                    <input type="text" class="label label2" name="organization" placeholder="Organization">
+                    <input type="text" class="label label3" name="businessEnvironment" placeholder="Business Environment">
+                    <input type="text" class="label label4" name="productsServices" placeholder="Products/Services">
+                    <input type="text" class="label label5" name="coreBusiness" placeholder="Core Business">
+                    <input type="text" class="label label6" name="competition" placeholder="Competition">
+                    <input type="text" class="label label7" name="resources" placeholder="Resources">
+                    <input type="text" class="label label8" name="businessClimate" placeholder="Business Climate">
+                </div>
+            </div>
+            <div class="next-button-container">
+                <button type="submit" class="next-btn">Next</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="/script.js"></script>
+</body>
+</html>
